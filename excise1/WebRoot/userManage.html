@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" type="text/css" href="css/userManage.css">
+    <script  src="js/jquery-3.5.1.min.js"></script> 
+    <script charset="utf-8" src="js/userManage.js"></script> 
+
+
+  </head>
+  
+  <body>
+    <div id="mainS">
+      <div id="search"> 
+        <form action="">
+          <input type="text" name="userName" id="userName" placeholder="输入用户名" />
+          <input type="text" name="chrName" id="chrName" placeholder="输入姓名" />
+          <input type="text" name="mail" id="mail" placeholder="输入邮箱地址" />
+          <select name="provinceCode" id="province">
+                <option value="">请选择省份</option>
+            </select>
+        </form>
+        <div id="bt">
+          <!-- <a href="#" id="btSearch" onclick="query()">查找</a>
+          <a href="#" id="btClear">清空</a>
+          <a href="#" id="btAdd">增加</a>
+          <a href="#" id="btDelete">删除</a>
+          <a href="#" id="btUpdate">修改</a> -->
+          <button  id="btSearch" onclick="query()">查找</button>
+          <button  id="btClear">清空</button>
+          <button  id="btAdd">增加</button>
+          <button  id="btDelete">删除</button>
+          <button  id="btUpdate">修改</button>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th width="40"><input type="checkbox" id="checkAll" title="选择" /></th>
+            <th class="bg" id="sortByUserName" data="userName">用户名</th>
+            <th width="110">中文名</th>
+            <th>邮箱</th>
+            <th width="70" class="bg" id="sortByProvinceName" data="provinceName">省份</th>
+            <th width="70">城市</th>
+            <th width="120">操作</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      
+        <div class="paging">
+          <div class="pageSize">每页
+            <select name="" id="pageSize">
+              <option>5</option>
+              <option selected>10</option>
+              <option >20</option>
+            </select>,共
+            <span id="total"></span>条数据，
+            <span id="pageNumber">1</span>页/<span id="pageCount"></span>页
+          </div>
+          <div class="pageTurn">
+            <a href="#" id="first">首页</a>
+            <a href="#" id="back">上一页</a>
+            <a href="#" id="next">下一页</a>
+            <a href="#" id="last">尾页</a>
+          </div>
+        </div>
+        
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+.tr_hover{
+    background-color: rgb(188, 233, 27);
+}
+.tr_select{
+    background-color: rgb(44, 27, 197);
+}
+.tr_even{
+    background-color: rgb(236, 228, 228);
+}
+.tr_odd{
+    background-color: #fff;
+}
+#mainS{
+    width: 60%;
+    height: 100%;
+    /* background-color: red; */
+    float:left;
+    margin-top:20px;
+    margin-left:20%
+}
+form{
+    display: inline-block;
+}
+#userName,#chrName,#mail,#provinceName{
+    width: 115px;
+}
+#bt{
+    /* float: right; */
+    display: inline-block;
+    margin-left:10px;
+}
+#bt button{
+    text-decoration: none;
+    /* height:15px;
+    width:30px;
+    background-color:green; */
+    margin-left:15px;
+}
+table{
+    width:100%;
+    /* height:auto; */
+    /* background-color:green; */
+}
+.pageSize,.pageTurn{
+    display:inline-block;
+
+}
+.pageTurn{
+    margin-right:10px;
+    float:right;
+}
+.pageTurn a{
+    margin-right:15px;
+
+}

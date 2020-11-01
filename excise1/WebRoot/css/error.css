@@ -1,0 +1,27 @@
+body, div {
+    margin:0; padding:0;font-style: normal;font:16px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif
+} 
+img {border: 0; vertical-align:middle}
+
+body{
+    background:url(../images/error.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover; 
+    -o-background-size: cover;
+    background-position: center 0;
+} 
+#errorHint{
+    /* background-color: red; */
+    padding-left: 860px;
+    padding-top: 360px;
+}
+
+#errorInfo,a,#leaveTime{
+    color: red;
+    font-weight: bold;
+}
+
+#leaveTime{
+    font-size: 20px;
+    margin: 0px 5px;
+}

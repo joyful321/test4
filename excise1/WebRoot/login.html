@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户登录</title>
+<link rel="stylesheet" href="css/login.css">
+<script src="js/login.js"></script>
+
+</head>
+<body>
+	<div id="loginmain">
+	
+		<p>
+			<input type="text" placeholder="用户名" name="userName" id="userName"><span
+				id="userinfo"></span>
+		</p>
+		<p>
+			<input type="password" placeholder="密码" name="password" id="password"><span
+				id="passinfo"></span>
+		</p>
+		<p>
+			<input type="text" placeholder="验证码" name="vcode" id="vcode">
+			<img src="createVerifyImage.do" alt="" onclick="changeImg();"
+				title="看不清，换一张" id="vcodeImg"> <span id="vcodeinfo"></span>
+		</p>
+		<p>
+		<div>
+			<input type="checkbox" name="autologin" id="autologin"> <font
+				color="#6495ed" id="autologinFont">一周内免登陆</font> <a
+				href="register.html" id="register">免费注册</a> </input>
+		</div>
+		</p>
+
+		<p>
+			<input type="button" value="登陆" id="btLogin"
+				onclick="ajaxCheckLogin()"><span id="checkError"></span>
+		</p>
+	</div>
+</body>
+</html>
