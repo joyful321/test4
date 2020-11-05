@@ -27,23 +27,23 @@ function checkEmail(){
 function checkRegister(){
     
         var userName=document.getElementById("userName").value;
-        var flag="0";
+//        var flag="0";
         $.ajax({
             type: "post",
-            url: "ajaxRegisterCheck.do",
+            url: "ajaxExit.do",
             contentType:"application/x-www-form-urlencoded;charset=utf-8",
-            data: {"userName":userName,"flag":flag},
-            dataType: "text",
+            data: {"userName":userName},
+            dataType: "json",
             success: function (response) {
                 if(response.code==0){
                 	userT=true;
-                	console.log("console.log12324"); 
+//                	console.log("console.log12324"); 
                 }
                 else{
                 	userT=false;
-                	console.log(response); 
+//                	console.log(response+"######################x#"); 
                 }
-                console.log(response.code+"(("+response.info);
+//                console.log(response.code+"(("+response.info);
                 document.getElementById("userNameInfo").innerText=response.info;
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -165,11 +165,16 @@ function register(){
         var userName=document.getElementById("userName").value;
         var password=document.getElementById("password").value;
         var name=document.getElementById("name").value;
+        var Email=document.getElementById("E-mail").value;
+        var province=document.getElementById("province").value;
+        var city=document.getElementById("city").value;
         var flag="1";
+        console.log(userName+" "+password+" "+name+" "+Email+" "+province+" "+city); 
         $.ajax({
             type: "post",
             url: "ajaxRegisterCheck.do",
-            data: {"userName":userName,"password":password,"name":name,"flag":flag},
+            data: {"userName":userName,"password":password,"name":name,"flag":flag,"Email":Email,"province":province,"city":city},
+//            data:$("#registerForm").serialize(),
             dataType: "json",
             success: function (response) {
                 if(response.register==0){
@@ -179,6 +184,52 @@ function register(){
                 console.log(response.register); 
                 console.log("注册失败"); 
                     
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+           	 alert(XMLHttpRequest.status);
+           	 alert(XMLHttpRequest.readyState);
+           	 alert(textStatus);
+           }
+        });
+    }else{
+    	
+    }
+    
+}
+function Register(){
+	console.log(userT); 
+	console.log(nameT); 
+	console.log(passwordT); 
+	console.log(mailT); 
+	console.log(proT); 
+    if(userT&&nameT&&passwordT&&mailT&&proT){
+//    	var userName=document.getElementById("userName").value;
+//        var password=document.getElementById("password").value;
+//        var name=document.getElementById("name").value;
+//        var Email=document.getElementById("E-mail").value;
+//        var province=document.getElementById("province").value;
+//        var city=document.getElementById("city").value;
+//        var 
+//        $("#action").val("insert");
+
+//        console.log(userName+" "+password+" "+name+" "+Email+" "+province+" "+city);
+//        var flag="1";
+        $.ajax({
+            type: "post",
+            url: "ajaxRegisterCheck.do",
+//            data: {"userName":userName,"password":password,"name":name,"flag":flag,"Email":Email,"province":province,"city":city},
+            data: $("#registerForm").serialize(), //将表单内容序列化成一个URL 编码字符串
+            dataType: "json",
+            success: function (response) {
+            	alert(response.info);
+            	 if (response.code == 0) {
+                     if ($("#action").val() != "") {
+                         CloseDiv('MyDiv', 'fade');
+                         query();
+                     } else {
+                         window.location.href = "login.html";
+                     }
+                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
            	 alert(XMLHttpRequest.status);

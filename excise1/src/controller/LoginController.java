@@ -63,7 +63,6 @@ public class LoginController extends HttpServlet {
 					if ("on".equals(checkBox)) {
 						cookieUser.setMaxAge(60 * 60 * 24 * 7);
 						cookiePass.setMaxAge(60 * 60 * 24 * 7);
-						System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 					} else {// 销毁
 						cookieUser.setMaxAge(0);
 						cookiePass.setMaxAge(0);

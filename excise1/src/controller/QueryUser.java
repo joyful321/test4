@@ -32,7 +32,7 @@ public class QueryUser extends HttpServlet {
 		// 连接数据库
 		try {
 			this.dbc = new databaseConnection();
-			System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+//			System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,8 +40,8 @@ public class QueryUser extends HttpServlet {
 
 		String queryParams = request.getParameter("queryParams");
 		String pageParams = request.getParameter("pageParams");
-		System.out.println("查询参数：" + pageParams + "&&&&&&&&&&&&&&&&&&&");
-		System.out.println("分页参数：" + queryParams + "&&&&&&&&&&&&&&&&&&&");
+//		System.out.println("查询参数：" + pageParams + "&&&&&&&&&&&&&&&&&&&");
+//		System.out.println("分页参数：" + queryParams + "&&&&&&&&&&&&&&&&&&&");
 		// 将json字符串转为java对象
 		Gson gson = new GsonBuilder().serializeNulls().create();
 		HashMap<String, Object> mapPage = gson.fromJson(pageParams,

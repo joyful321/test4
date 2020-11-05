@@ -18,17 +18,16 @@ public class User {
 	
 
 	 public User(String userName, String password, String chrName, String mail,
-			String provinceCode, String provinceName, String cityCode,
-			String cityName) {
+			String provinceCode,String cityCode) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.chrName = chrName;
 		this.mail = mail;
 		this.provinceCode = provinceCode;
-		this.provinceName = provinceName;
+//		this.provinceName = provinceName;
 		this.cityCode = cityCode;
-		this.cityName = cityName;
+//		this.cityName = cityName;
 	}
 
 
@@ -134,6 +133,10 @@ public class User {
 				+ provinceCode + ", provinceName=" + provinceName
 				+ ", cityCode=" + cityCode + ", cityName=" + cityName + "]";
 	}
+
+
+
+	
 
 
 }

@@ -19,18 +19,18 @@ public class ProvinceCityDao {
 	public ArrayList<Province> queryProvince(){
 		ArrayList<Province> list = new ArrayList() ;
 		try {
-			// 3.´´½¨Óï¾ä
+			// 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			String sql = "select * from t_province ";
 			PreparedStatement pst = con.prepareStatement(sql);
-			// 4.Ö´ÐÐÓï¾ä
+			// 4.Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 			ResultSet rs = pst.executeQuery();
-			// 5.ÏìÓ¦´¦Àí
+			// 5.ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 			while (rs.next()) {
 				Province pro = new Province(rs.getString("provinceCode"), rs.getString("provinceName"));
 				System.out.println(pro.toString());
 				list.add(pro);
 			}
-			// 6.¹Ø±ÕÁ¬½Ó
+			// 6.ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
 			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,18 +41,18 @@ public class ProvinceCityDao {
 	public ArrayList<City> queryCity(String provinceCode){
 		ArrayList<City> list = new ArrayList() ;
 		try {
-			// 3.´´½¨Óï¾ä
+			// 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			String sql = "select * from t_city where provinceCode=?";
 			PreparedStatement pst = con.prepareStatement(sql);
-			// 4.Ö´ÐÐÓï¾ä
+			// 4.Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
 			pst.setString(1, provinceCode);
 			ResultSet rs = pst.executeQuery();
-			// 5.ÏìÓ¦´¦Àí
+			// 5.ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 			while (rs.next()) {
-				City city = new City(rs.getString("provinceCode"), rs.getString("cityName"));
+				City city = new City(rs.getString("provinceCode"), rs.getString("cityName"), rs.getString("cityCode"));
 				list.add(city);
 			}
-			// 6.¹Ø±ÕÁ¬½Ó
+			// 6.ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
 			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();

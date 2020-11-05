@@ -22,7 +22,7 @@ form{
     display: inline-block;
 }
 #userName,#chrName,#mail,#provinceName{
-    width: 115px;
+    width: 110px;
 }
 #bt{
     /* float: right; */
@@ -34,7 +34,7 @@ form{
     /* height:15px;
     width:30px;
     background-color:green; */
-    margin-left:15px;
+    margin-left:13px;
 }
 table{
     width:100%;

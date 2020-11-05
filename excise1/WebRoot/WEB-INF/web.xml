@@ -6,7 +6,7 @@
   	<filter-class>filter.PermissionFilter</filter-class>
   	<init-param>
   		<param-name>notCheckPath</param-name>
-  		<param-value>/createVerifyImage.do,/login.do,/error.jsp,/ajaxLoginCheck.do,/queryProvinceCity.do,/ajaxRegisterCheck.do,/queryUser.do</param-value>
+  		<param-value>/createVerifyImage.do,/login.do,/error.jsp,/ajaxLoginCheck.do,/queryProvinceCity.do,/ajaxRegisterCheck.do,/queryUser.do,/deleteUser.do,/ajaxExit.do</param-value>
   	</init-param>
   </filter>
   <filter-mapping>

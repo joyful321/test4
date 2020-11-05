@@ -39,10 +39,16 @@ public class ajaxRegisterCheck extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// 1.获取参数值
-		String userName = request.getParameter("userName");
-		int flag = Integer.parseInt(request.getParameter("flag"));
-		System.out.println(userName);
+		// 1.按照表单的各元素的name属性值获取各请求参数值
+				String action=request.getParameter("action");
+				String userName = request.getParameter("userName");
+				String password = request.getParameter("password");
+				String name = request.getParameter("name");
+				String Email = request.getParameter("E-mail");
+				String province = request.getParameter("provinceCode");
+				String city = request.getParameter("cityCode");
+
+//		System.out.println(userName);
 		// 2.获取HttpSession对象
 		HttpSession session = request.getSession();
 
@@ -51,32 +57,48 @@ public class ajaxRegisterCheck extends HttpServlet {
 
 		UserDao userDao = new UserDao(this.dbc.getConnection());
 		
-		if(flag==0){
+//			String name = request.getParameter("name");
+//			String Email=request.getParameter("Email");
+//			String province=request.getParameter("province");
+//			String city=request.getParameter("city");
+
 			
-			User user = userDao.get(userName);
-			if (user == null) {
+			User user=new User(userName,password,name,Email,province,city);
+			System.out.println(user.toString()+"$$$$$$$$");
+			boolean success = false ;
+			String info="";
+			if(action.equals("")){
+				success = userDao.insert(user);
+				info="注册";
+			}
+			else if(action.equals("insert")){
+				success = userDao.insert(user);
+				info="新增";
+			}
+			else if(action.equals("update")){
+				success = userDao.update(user);
+				info="修改";
+			}
+			// 存放返回信息的Map
+			if (success) {
 				map.put("code", 0);
-				map.put("info", "");
-				System.out.println("**&&&&&&&&&*");
-			} else {// 用户名存在
+				map.put("info", info+"成功!");
+			} else {
 				map.put("code", 1);
-				map.put("info", "用户名存在，请重新输入");
+				map.put("info", info+"失败!");
 			}
-		}else{
-			String password = request.getParameter("password");
-			String name = request.getParameter("name");
-			User user=new User(userName,password,name);
+
+
 			
-			if(userDao.insert(user)==0){
-				map.put("register", 0);
-				System.out.println(userDao.insert(user)+"******");
-			}
-				
-			else {
-				map.put("register", 1);
-				System.out.println(userDao.insert(user)+"&&&&&");
-			}
-		}
+//			if(userDao.insert(user)==0){
+//				map.put("register", 0);
+//				System.out.println(userDao.insert(user)+"******");
+//			}
+//				
+//			else {
+//				map.put("register", 1);
+//				System.out.println(userDao.insert(user)+"&&&&&");
+//			}
 		
 		
 		String jsonStr = new Gson().toJson(map);

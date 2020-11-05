@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>用户注册</title>
-	
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+<head>
+<title>用户注册</title>
 
-    <!-- <link rel="stylesheet" href="css/register.css"> -->
-     <script  src="js/jquery-3.5.1.min.js"></script> 
-    <script charset="utf-8" src="js/register.js"></script> 
-   
- 
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- <link rel="stylesheet" href="css/register.css"> -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<script charset="utf-8" src="js/register.js"></script>
+
+
 </head>
 
-  <body>
-    <div>
-        <span>账号注册</span>
-        <a href="login.html">已有账号，请登录</a>
-    </div>
-    <div>
-        <p><input type="text" placeholder="用户名" name="userName" id="userName" onblur="checkUsername()"><span id="userNameInfo"></span></p>
-        <p><input type="text" placeholder="真实姓名" name="name" id="name" onblur="checkName()"><span id="nameInfo"></span></p>
-        <p><input type="text" placeholder="邮箱" name="E-mail" id="E-mail" onblur="checkEmail()"><span id="E-mailInfo"></span></p>
-        <p>
-            <select name="provinceCode" id="province">
-                <option value="">请选择省份</option>
-            </select>
-            <span class="auth_err" id="provinceError"> </span>
-        </p>
-        <p>
-            <select name="cityCode" id="city">
-                <option value="">请选择城市</option>
-            </select>
-            <span class="auth_err" id="cityError"> </span>
-        </p>
-        <p><input type="password" placeholder="密码" name="password" id="password" onblur="checkPassword()"><span id="passwordInfo"></span></p>
-        <p><input type="password" placeholder="确认密码" name="checkedPassword" id="checkedPassword" onblur="recheckedPassword()"><span id="checkedPasswordInfo"></span></p>
-    
-        <p><input type="button" value="注册" id="btLogin" onclick="register()" ></p>
+<body>
+	<div>
+		<span>账号注册</span> <a href="login.html">已有账号，请登录</a>
+	</div>
+	<div>
+		<form id="registerForm">
 
-        </div>
-        
+			<input id="action" name="action" value="" hidden />
 
-  </body>
+			<p>
+				<input type="text" placeholder="用户名" name="userName" id="userName"
+					onblur="checkUsername()"><span id="userNameInfo"></span>
+			</p>
+			<p>
+				<input type="text" placeholder="真实姓名" name="name" id="name"
+					onblur="checkName()"><span id="nameInfo"></span>
+			</p>
+			<p>
+				<input type="text" placeholder="邮箱" name="E-mail" id="E-mail"
+					onblur="checkEmail()"><span id="E-mailInfo"></span>
+			</p>
+			<p>
+				<select name="provinceCode" id="province">
+					<option value="">请选择省份</option>
+				</select> <span class="auth_err" id="provinceError"> </span>
+			</p>
+			<p>
+				<select name="cityCode" id="city">
+					<option value="">请选择城市</option>
+				</select> <span class="auth_err" id="cityError"> </span>
+			</p>
+			<p>
+				<input type="password" placeholder="密码" name="password"
+					id="password" onblur="checkPassword()"><span
+					id="passwordInfo"></span>
+			</p>
+			<p>
+				<input type="password" placeholder="确认密码" name="checkedPassword"
+					id="checkedPassword" onblur="recheckedPassword()"><span
+					id="checkedPasswordInfo"></span>
+			</p>
+
+			<p>
+				<input type="button" value="注册" id="btLogin" onclick="Register()">
+			</p>
+
+		</form>
+	</div>
+
+
+</body>
 </html>
